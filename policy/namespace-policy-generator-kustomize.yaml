@@ -1,0 +1,29 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: nde-namespace-policies
+placementBindingDefaults:
+  name: nde-tenant-namespaces-placement-binding
+policyDefaults:
+  namespace: openshift-gitops
+  policySets:
+    - nde-tenant-namespaces-set
+  pruneObjectBehavior: "None"
+  remediationAction: "enforce"
+policies:
+  - name: nde-tenant-namespaces
+    manifests:
+      - path: namespaces/tenants-ns.yaml
+  - name: nde-xteam-app-namespaces
+    manifests:
+      - path: namespaces/xteam-project-ns.yaml
+  - name: nde-yteam-app-namespaces
+    manifests:
+      - path: namespaces/yteam-project-ns.yaml
+  - name: nde-zteam-app-namespaces
+    manifests:
+      - path: namespaces/zteam-project-ns.yaml
+policySets:
+- name: nde-tenant-namespaces-set
+  placement:
+    placementName: nde-clusters-placement

@@ -1,0 +1,21 @@
+---
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: zteam-admins
+users:
+- bmarley
+---
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: zteam-ops
+users:
+- jjoplin
+---
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: zteam-viewers
+users:
+- oosbourne

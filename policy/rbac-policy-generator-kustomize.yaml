@@ -1,0 +1,26 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: nde-rbac-creation-policies
+placementBindingDefaults:
+  name: nde-rbac-creation-placement-binding
+policyDefaults:
+  namespace: openshift-gitops
+  policySets:
+    - nde-rbac-creation-set
+  pruneObjectBehavior: "None"
+  remediationAction: "enforce"
+policies:
+  - name: nde-xteam-rbac-creation
+    manifests:
+      - path: rbac/xteam-rolebindings.yaml
+  - name: nde-yteam-rbac-creation
+    manifests:
+      - path: rbac/yteam-rolebindings.yaml
+  - name: nde-zteam-rbac-creation
+    manifests:
+      - path: rbac/zteam-rolebindings.yaml
+policySets:
+- name: nde-rbac-creation-set
+  placement:
+    placementName: nde-clusters-placement

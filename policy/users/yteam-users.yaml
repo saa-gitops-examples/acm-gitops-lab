@@ -1,0 +1,18 @@
+---
+apiVersion: user.openshift.io/v1
+fullName: David Miller
+kind: User
+metadata:
+  name: dmiller
+---
+apiVersion: user.openshift.io/v1
+fullName: Charles Garcia
+kind: User
+metadata:
+  name: cgarcia
+---
+apiVersion: user.openshift.io/v1
+fullName: Thomas Wilson
+kind: User
+metadata:
+  name: twilson

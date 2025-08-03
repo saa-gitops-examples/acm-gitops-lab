@@ -1,0 +1,18 @@
+---
+apiVersion: user.openshift.io/v1
+fullName: Bob Smith
+kind: User
+metadata:
+  name: bsmith
+---
+apiVersion: user.openshift.io/v1
+fullName: Fred Blogs
+kind: User
+metadata:
+  name: fblogs
+---
+apiVersion: user.openshift.io/v1
+fullName: John Brown
+kind: User
+metadata:
+  name: jbrown

@@ -1,0 +1,5 @@
+generators:
+  - namespace-policy-generator-kustomize.yaml
+  - user-policy-generator-kustomize.yaml
+  - group-policy-generator-kustomize.yaml
+  - rbac-policy-generator-kustomize.yaml

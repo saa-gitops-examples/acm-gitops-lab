@@ -1,0 +1,21 @@
+---
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: xteam-admins
+users:
+- bsmith
+---
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: xteam-ops
+users:
+- fblogs
+---
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: xteam-viewers
+users:
+- jbrown

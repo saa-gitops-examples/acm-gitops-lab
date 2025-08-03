@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: zteam-app
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: zteam-db
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: zteam-web

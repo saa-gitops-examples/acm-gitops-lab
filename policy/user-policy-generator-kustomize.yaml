@@ -1,0 +1,26 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: nde-user-creation-policies
+placementBindingDefaults:
+  name: nde-user-creation-placement-binding
+policyDefaults:
+  namespace: openshift-gitops
+  policySets:
+    - nde-user-creation-set
+  pruneObjectBehavior: "None"
+  remediationAction: "enforce"
+policies:
+  - name: nde-xteam-user-creation
+    manifests:
+      - path: users/xteam-users.yaml
+  - name: nde-yteam-user-creation
+    manifests:
+      - path: users/yteam-users.yaml
+  - name: nde-zteam-user-creation
+    manifests:
+      - path: users/zteam-users.yaml
+policySets:
+- name: nde-user-creation-set
+  placement:
+    placementName: nde-clusters-placement
