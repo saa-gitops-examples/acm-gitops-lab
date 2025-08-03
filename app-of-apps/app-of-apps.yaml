@@ -1,0 +1,24 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps-demo
+  namespace: openshift-gitops
+  labels:
+    rht-gitops.com/openshift-gitops: policies
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: 'https://kubernetes.default.svc'
+  project: default
+  source:
+    path: app-of-apps/demo
+    directory:
+      include: "*.yaml"
+    repoURL:  https://github.com/saa-gitops-examples/acm-gitops-lab
+    targetRevision: main
+  syncPolicy:
+    automated:
+      selfHeal: true
+    syncOptions:
+      - Validate=true

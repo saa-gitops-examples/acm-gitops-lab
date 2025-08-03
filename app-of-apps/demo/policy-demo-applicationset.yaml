@@ -1,0 +1,31 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: policy-demo-appset
+  namespace: openshift-gitops
+spec:
+  goTemplate: true
+  generators: []
+  syncPolicy:
+    preserveResourcesOnDeletion: false
+  template:
+    metadata:
+      name: policy-demo
+      annotations:
+        argocd.argoproj.io/compare-options: IgnoreExtraneous
+    spec:
+      project: default
+      destination:
+        server: https://api.brosenbe-acm.k37c.p1.openshiftapps.com:6443
+        namespace: openshift-gitops
+      source:
+        repoURL: https://github.com/saa-gitops-examples/acm-gitops-lab
+        path: policy
+        plugin:
+          name: argocd-novault-plugin-kustomize
+        targetRevision: main
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: true
