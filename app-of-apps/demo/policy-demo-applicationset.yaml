@@ -6,13 +6,14 @@ metadata:
   namespace: openshift-gitops
 spec:
   goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
   generators:
     - clusterDecisionResource:
-      configMapRef: acm-placement
-      labelSelector:
-        matchLabels:
-          cluster.open-cluster-management.io/placement: placement-hub-openshift
-      requeueAfterSeconds: 180
+        configMapRef: acm-placement
+        labelSelector:
+          matchLabels:
+            cluster.open-cluster-management.io/placement: placement-hub-openshift
+        requeueAfterSeconds: 180
   syncPolicy:
     preserveResourcesOnDeletion: false
   template:
