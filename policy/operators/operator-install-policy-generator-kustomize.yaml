@@ -7,11 +7,11 @@ placementBindingDefaults:
 policyDefaults:
   namespace: openshift-gitops
   policySets:
-    - nde-group-creation-set
+    - nde-operator-creation-set
   pruneObjectBehavior: "DeleteIfCreated"
   remediationAction: "enforce"
 policySets:
-- name: nde-group-creation-set
+- name: nde-operator-creation-set
   placement:
     placementName: nde-clusters-placement
 policies:
