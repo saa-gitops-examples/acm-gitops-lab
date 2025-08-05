@@ -4,7 +4,7 @@ metadata:
   name: openshift-gitops-operator
   namespace: openshift-operators # Or the namespace where you want the operator to reside
 spec:
-  channels: [latest] # Or the desired channel, e.g., "release-1.x"
+  channel: latest # Or the desired channel, e.g., "release-1.x"
   config:
     env:
     - name: DISABLE_DEFAULT_ARGOCD_INSTANCE
