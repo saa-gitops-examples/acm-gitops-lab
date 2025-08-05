@@ -4,7 +4,7 @@ metadata:
   name: openshift-gitops-operator
   namespace: openshift-operators # Or the namespace where you want the operator to reside
 spec:
-  channel: stable # Or the desired channel, e.g., "release-1.x"
+  channels: [latest] # Or the desired channel, e.g., "release-1.x"
   config:
     env:
     - name: DISABLE_DEFAULT_ARGOCD_INSTANCE
@@ -13,5 +13,5 @@ spec:
       value: openshift-gitops
   installPlanApproval: Automatic # Set to Manual for manual approval of upgrades
   name: openshift-gitops-operator
-  source: redhat-operators
-  sourceNamespace: openshift-marketplace
+  source: redhat-operators # v0
+  sourceNamespace: openshift-marketplace # v0
