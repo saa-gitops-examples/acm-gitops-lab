@@ -2,11 +2,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: policy-demo-appset
+  name: operator-install-demo-appset
   namespace: openshift-gitops
 spec:
   goTemplate: true
-  goTemplateOptions: ["missingkey=error"]
   generators:
     - clusterDecisionResource:
         configMapRef: acm-placement
@@ -18,7 +17,7 @@ spec:
     preserveResourcesOnDeletion: false
   template:
     metadata:
-      name: policy-demo
+      name: operator-install-demo
       annotations:
         argocd.argoproj.io/compare-options: IgnoreExtraneous
     spec:
@@ -28,7 +27,7 @@ spec:
         namespace: openshift-gitops
       source:
         repoURL: https://github.com/saa-gitops-examples/acm-gitops-lab
-        path: policy
+        path: operators
         plugin:
           name: argocd-novault-plugin-kustomize
         targetRevision: main

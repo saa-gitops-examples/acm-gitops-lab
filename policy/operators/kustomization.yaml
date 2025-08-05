@@ -1,0 +1,2 @@
+generators:
+  - operator-install-policy-generator-kustomize.yaml

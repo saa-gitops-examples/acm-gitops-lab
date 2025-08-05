@@ -1,0 +1,20 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: nde-operator-install-policies
+placementBindingDefaults:
+  name: nde-operator-install-placement-binding
+policyDefaults:
+  namespace: openshift-gitops
+  policySets:
+    - nde-group-creation-set
+  pruneObjectBehavior: "DeleteIfCreated"
+  remediationAction: "enforce"
+policySets:
+- name: nde-group-creation-set
+  placement:
+    placementName: nde-clusters-placement
+policies:
+  - name: openshift-gitops-operator
+    manifests:
+      - path: openshift-gitops/subscription.yaml
